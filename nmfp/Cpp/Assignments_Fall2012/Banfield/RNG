@@ -1,0 +1,19 @@
+import matplotlib.pylab
+import math
+import numpy
+
+m = math.pow(2, 31)-1
+a = math.pow(7, 5)
+i = 1
+r = []
+j = 0
+
+while j< 10000000:
+    r.append(i/m)
+    i = (a * i)%m
+    j = j + 1
+
+
+
+matplotlib.pyplot.hist(r, bins=1000)
+matplotlib.pyplot.show()

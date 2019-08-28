@@ -1,0 +1,80 @@
+import matplotlib.pylab
+import math
+import numpy
+
+xValues = [-2, -1, 0, 1, 2]
+yValues = [5.94824, 3.13729, 2.17163, 2.89610, 6.08081]
+
+n=5
+orderOfFit=2
+mPlusOne = orderOfFit + 1
+
+A = [[0]*mPlusOne for x in xrange(mPlusOne)]
+c = [0]*mPlusOne
+v = [0]*mPlusOne
+
+i = 0
+k = 0
+
+
+sum = 0
+while k<mPlusOne:
+    i = 0
+    while i<mPlusOne:
+        j = 0
+        sum = 0
+        while j<n:
+            A[k][i] = sum + math.pow(xValues[j], i + k)
+            sum = A[k][i]
+            j = j + 1
+        i = i + 1
+    k = k + 1
+    
+
+    
+
+
+k = 0
+j = 0
+sum = 0
+while k<mPlusOne:
+    j = 0
+    sum = 0
+    while j<n:
+        v[k] = sum + yValues[j]*math.pow(xValues[j], k)
+        sum = v[k]
+        j = j + 1
+    k = k + 1
+   
+
+Ainverse = numpy.linalg.inv(A)
+
+c = numpy.dot(Ainverse, v)
+print c
+fitLine = [0]*n
+j = 0
+if orderOfFit == 1:
+    while j<n:
+        fitLine[j] = c[1]*xValues[j] + c[0]
+        j = j+1
+if orderOfFit == 2:
+    while j<n:
+        fitLine[j] = c[2]*math.pow(xValues[j],2) + c[1]*xValues[j] + c[0]
+        j = j+1
+if orderOfFit == 3:
+    while j<n:
+        fitLine[j] = c[3]*math.pow(xValues[j],3) + c[2]*math.pow(xValues[j],2) +c[1]*xValues[j] + c[0]
+        j = j+1
+if orderOfFit == 4:
+    while j<n:
+        fitLine[j] = c[4]*math.pow(xValues[j],4) + c[3]*math.pow(xValues[j],3) + c[2]*math.pow(xValues[j],2) + c[1]*xValues[j] + c[0]
+        j = j+1
+if orderOfFit == 5:
+    while j<n:
+        fitLine[j] = c[5]*math.pow(xValues[j],4) + c[4]*math.pow(xValues[j],4) + c[3]*math.pow(xValues[j],3) + c[2]*math.pow(xValues[j],2) +c[1]*xValues[j] + c[0]
+        j = j+1
+
+
+matplotlib.pylab.scatter(xValues,yValues)
+matplotlib.pylab.plot(xValues, fitLine)
+matplotlib.pylab.show()

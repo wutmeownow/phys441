@@ -1,0 +1,2 @@
+#!/bin/sh
+g++ -I/opt/local/root/include -o gaussian_generate gaussian_generate.cpp `root-config --libs`

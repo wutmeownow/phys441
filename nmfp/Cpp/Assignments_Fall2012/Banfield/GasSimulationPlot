@@ -1,0 +1,18 @@
+import matplotlib.pylab
+import math
+import numpy
+x = []
+f = open('C:/Users/Gari/Desktop/vmagF.txt', 'r')
+for line in f:
+    x.append(float(line))
+
+matplotlib.pyplot.hist(x, bins=1000)
+matplotlib.pyplot.show()
+
+
+
+
+
+
+
+

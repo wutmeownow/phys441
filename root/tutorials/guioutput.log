@@ -1,0 +1,19 @@
+root [1] . gui/games.C
+Unknown interpreter command ' gui/games.C'
+root [1] .x gui/games/C
+Error in <TApplication::ExecuteFile>: macro gui/games/C not found in path .:/usr/local/Cellar/root/5.34.26/share/root/macros:
+root [1] .x gui/games.C
+Error in <TApplication::ExecuteFile>: macro gui/games.C not found in path .:/usr/local/Cellar/root/5.34.26/share/root/macros:
+root [1] .x games.C
+
+
+
+             Move   Piece Left     ---------     left-arrow
+             Move   Piece Right    ---------     right-arrow
+             Rotate Piece          ---------     up/down-arrow 
+             Drop   Piece Down     ---------     space-bar
+
+
+
+root [1] .q
+[0m

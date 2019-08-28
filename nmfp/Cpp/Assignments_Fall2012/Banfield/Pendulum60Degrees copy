@@ -1,0 +1,27 @@
+import matplotlib.pylab
+
+gOverL = 1
+timestep = 0.01
+pi = 3.14
+theta = (60*pi)/180
+thetaDot = 0
+thetaDoubleDot = 0
+thetaValues = []
+timeValues = []
+time = 0
+thetaValues.append(theta)
+timeValues.append(time)
+while time < 40:
+    thetaDoubleDot = -(gOverL)*theta
+    time = time + timestep
+    timeValues.append(time)
+    thetaDot = thetaDot + thetaDoubleDot*timestep
+    theta = theta + thetaDot*timestep
+    thetaValues.append(theta)
+
+matplotlib.pylab.plot(timeValues, thetaValues)
+matplotlib.pylab.show()
+    
+    
+    
+

@@ -1,0 +1,62 @@
+import matplotlib.pylab
+import math
+import numpy
+
+xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ,15]
+yValues = [1.6711, 2.00994, 2.26241, 2.18851, 2.33006, 2.42660, 2.48424, 2.63729, 2.77163, 2.89610, 2.89083, 3.08081, 3.05305, 3.24079, 3.36212]
+
+n=15
+orderOfFit=1
+mPlusOne = orderOfFit + 1
+
+A = [[0]*mPlusOne for x in xrange(mPlusOne)]
+c = [0]*mPlusOne
+v = [0]*mPlusOne
+
+i = 0
+k = 0
+
+
+sum = 0
+while k<mPlusOne:
+    i = 0
+    while i<mPlusOne:
+        j = 0
+        sum = 0
+        while j<n:
+            A[k][i] = sum + math.pow(xValues[j], i + k)
+            sum = A[k][i]
+            j = j + 1
+        i = i + 1
+    k = k + 1
+    
+
+    
+
+
+k = 0
+j = 0
+sum = 0
+while k<mPlusOne:
+    j = 0
+    sum = 0
+    while j<n:
+        v[k] = sum + yValues[j]*math.pow(xValues[j], k)
+        sum = v[k]
+        j = j + 1
+    k = k + 1
+   
+
+Ainverse = numpy.linalg.inv(A)
+
+c = numpy.dot(Ainverse, v)
+print c
+fitLine = [0]*n
+j = 0
+while j<n:
+    fitLine[j] = c[1]*xValues[j] + c[0]
+    j = j+1
+
+matplotlib.pylab.scatter(xValues,yValues)
+matplotlib.pylab.plot(xValues, fitLine)
+matplotlib.pylab.show()

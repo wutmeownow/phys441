@@ -1,0 +1,60 @@
+import math
+import numpy
+import matplotlib.pylab
+
+xValues=[.038, .194, .425, .626, 1.253, 2.5, 3.74]
+yValues=[.05, .127, .094, .2122, .2729, .2665, .3317]
+betaOne = 0.9
+betaTwo = 0.2
+i = 0
+r = [0]*7
+Jacobian = [[0]*2 for x in xrange(7)]
+i = 0
+while i<7:
+    r[i] = yValues[i] - ((betaOne*xValues[i])/(betaTwo+xValues[i]))
+    i = i + 1
+rSquared = 0
+j = 0
+while j < 7:
+    rSquared = rSquared + r[j]*r[j]
+    j = j + 1
+step = 0
+while step < 10:
+    i = 0
+    while i<7:
+        Jacobian[i][0] = (((xValues[i]))/(betaTwo+xValues[i]))
+        Jacobian[i][1] = ((-1*betaOne*xValues[i])/(math.pow(betaTwo+xValues[i],2)))
+        i = i + 1
+    A = numpy.dot(numpy.transpose(Jacobian),Jacobian)
+    B = numpy.linalg.inv(A)
+    C = numpy.dot(numpy.transpose(Jacobian),r)
+    Correction = numpy.dot(B, C)
+    betaOne = betaOne + Correction[0]
+    betaTwo = betaTwo + Correction[1]
+    i = 0
+    while i<7:
+        r[i] = yValues[i] - ((betaOne*xValues[i])/(betaTwo+xValues[i]))
+        i = i + 1
+    j = 0
+    rSquared = 0
+    while j < 7:
+        rSquared = rSquared + r[j]*r[j]
+        j = j + 1
+    step = step + 1
+
+fitLine = [0]*7
+i = 0
+while i < 7:
+    fitLine[i] = (betaOne*xValues[i])/(betaTwo+xValues[i])
+    i = i + 1
+matplotlib.pylab.scatter(xValues,yValues)
+matplotlib.pylab.plot(xValues, fitLine)
+matplotlib.pylab.show()
+
+
+
+
+
+
+
+    

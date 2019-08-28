@@ -1,0 +1,52 @@
+#!/usr/bin/python
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+import random
+
+def generating_function(x):
+    a=1.80
+    b=-4.05
+    c=0.40
+    d=1.0000
+    xp = np.array(x)
+    return a+b*xp+c*xp*xp+d*xp*xp*xp
+
+def fitfunction(x,a,b,c,d):
+    xp = np.array(x)
+    return a+b*xp+c*xp*xp+d*xp*xp*xp
+
+x = []
+y = []
+walk = [-1,1,-.5,.5,0,-1,1,-.5,.5,0,-1,1,-.5,.5,0]
+
+npoints = 15
+
+for i in range (0,npoints-1):
+    x.append(float(-4.0+8.0*i/npoints))
+    y.append(float(generating_function(x[i]))+float(0.5*walk[i]))
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(111)
+
+ax1.set_title("Cubic Fitting - No Errors")    
+ax1.set_xlabel('X')
+ax1.set_ylabel('Y')
+ax1.set_yscale("linear",nonposy='clip')
+ax1.grid(True)
+
+ax1.scatter(x,y)
+
+init_vals = [1.0,-1.0,1.0,1.0]
+popt, pcov = curve_fit(fitfunction, x, y, p0=init_vals)
+
+print (popt)
+
+print (pcov)
+
+ax1.plot(x, fitfunction(x, *popt), 'r-', label = 'fit: Constant = %.3E, Linear = %.3E, Quadratic = %.3E, Cubic = %.3E' % tuple(popt))
+
+leg = ax1.legend()
+plt.show()

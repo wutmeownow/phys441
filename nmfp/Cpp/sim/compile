@@ -1,0 +1,6 @@
+#!/bin/sh
+g++ -c dsmceq.cpp
+g++ -c sorter.cpp
+g++ -c colider.cpp
+g++ -c rand.cpp
+g++ -o dsmceq dsmceq.o sorter.o colider.o rand.o

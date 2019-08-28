@@ -1,0 +1,2 @@
+#!/bin/sh
+g++ -I/opt/local/root/include -o polynomial_generate polynomial_generate.cpp `root-config --libs`
