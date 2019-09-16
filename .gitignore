@@ -1,2 +1,3 @@
 *.DS_Store
 *physics421
+*.ipynb_checkpoints*
