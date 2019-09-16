@@ -1,7 +1,5 @@
 from pylab import *
 import numpy as np
-import matplotlib
-matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import random
@@ -19,6 +17,7 @@ def fitfunction(x,*paramlist):
     sum = 0
     for i in range(0,len(paramlist)):
         sum = sum + paramlist[i]*pow(xp,i)
+    print (sum)
     return sum
 
 x = []
@@ -91,11 +90,12 @@ ax1.grid(True)
 ax1.errorbar(x,y,yerr=sigma,fmt='o')
 
 init_vals = [0 for x in range(0,m)]
+f2 = np.vectorize(generating_function)
 popt, pcov = curve_fit(fitfunction, x, y, p0=init_vals, sigma=sigma, absolute_sigma=True)
 #popt, pcov = curve_fit(fitfunction, x, y, p0=init_vals)
 
-xi = linspace(np.min(x),np.max(x),100)
-ps = np.random.multivariate_normal(popt,pcov,10000)
+xi = linspace(np.min(x),np.max(x),5)
+ps = np.random.multivariate_normal(popt,pcov,100)
 ysample = np.asarray([fitfunction(xi,*pi) for pi in ps])
 lower = percentile(ysample,16.0,axis=0)
 upper = percentile(ysample,84.0,axis=0)
