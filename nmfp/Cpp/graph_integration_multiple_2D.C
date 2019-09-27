@@ -9,7 +9,7 @@ Double_t myfunction(Double_t x)
 	return f;
 }
 
-void graph_integration_multiple_2D(Int_t max_order = 3, Int_t nbins = 20, Int_t min_order = 2) {
+void graph_integration_multiple_2D(Int_t max_order = 4, Int_t nbins = 20, Int_t min_order = 2) {
   
    gStyle->SetOptFit(kFALSE);	
    TCanvas *c1 = new TCanvas("c1","Integration Example",200,200,1000,1000);
