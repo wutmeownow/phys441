@@ -14,7 +14,7 @@ void graph_runge_random() {
 
    TRandom r;
 
-  double xlow,xhigh;
+  double xlow,xhigh,rnd;
   int npoints, i;
 
   cout << "Enter the number of data points:" << endl;
@@ -50,7 +50,7 @@ void graph_runge_random() {
    ptstats->SetOptStat(1000000001);
    ptstats->SetOptFit(111);
 
-   gr = new TGraph(npoints,x,y);
+   TGraph *gr = new TGraph(npoints,x,y);
    TF1 *pfit1 = new TF1("pfit1","pol3");
 //   gr->SetLineColor(2);
 //   gr->SetLineWidth(4);
