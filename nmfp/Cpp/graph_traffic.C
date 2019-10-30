@@ -113,8 +113,8 @@ void graph_traffic() {
    c2->SetFillColor(42);
    c2->SetGrid();
 
-   grstart = new TGraph(npoints,xplot,rho_start);
-   grend = new TGraph(npoints,xplot,rho);
+   TGraph *grstart = new TGraph(npoints,xplot,rho_start);
+   TGraph *grend = new TGraph(npoints,xplot,rho);
    
    grstart->SetLineColor(2);
    grend->SetLineColor(4);
