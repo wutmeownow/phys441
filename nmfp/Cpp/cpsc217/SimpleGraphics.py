@@ -161,7 +161,7 @@ def __init():
   # Create the window
   __master = tk.Tk()
   __master.protocol("WM_DELETE_WINDOW", __closeClicked)
-  __canvas = tk.Canvas(__master, width=1200, height=900)
+  __canvas = tk.Canvas(__master, width=800, height=600)
   __canvas.pack()
 
   # Setup handlers for mouse and keyboard input
