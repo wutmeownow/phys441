@@ -7,8 +7,7 @@
 #
 
 def int2ordinal (user_integer):
-    ending = ['th','st','nd','rd']
-    return str(user_integer)+ending[int((int((user_integer%100 - user_integer%10)/10))!=1)*(1-int((int(user_integer%10))>3))*(int(user_integer%10))]
+    ending = ['th','st','nd','rd']; return str(user_integer)+ending[int((int((user_integer%100 - user_integer%10)/10))!=1)*(1-int((int(user_integer%10))>3))*(int(user_integer%10))]
 
 # Demonstrate the int2ordinal function by reading a day, month and year and
 # displaying the entered values as ordinal numbers as part of a longer message.
