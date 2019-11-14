@@ -22,7 +22,7 @@ def sorter(x,L,sD):
     for ipart in range(npart):
         sD.cell_n[ jx[ipart] ] += 1
 
-    print(sD.cell_n)
+    #print(sD.cell_n)
 
     #* Build index list as cumulative sum of the
     #  number of particles in each cell
