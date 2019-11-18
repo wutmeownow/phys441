@@ -36,7 +36,7 @@ def collider(v,crmax,tau,selxtra,coeff,sD):
                 if cr > crm:
                     crm = cr
 
-                if cr/crmax[jcell] > np.random.random():
+                if (cr/crmax[jcell])**2 > np.random.random():
                     col += 1
                     vcm = 0.5*( v[ip1,:] + v[ip2,:] )
                     cos_th = 1. - 2.*np.random.random()
