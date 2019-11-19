@@ -618,6 +618,27 @@ def check_snake_length(p1_queue,max_length):
             p1_queue.pop(0)
     return
 
+def check_overlap(cx,cy,dx,dy,snake_tail):
+    overlap = False
+    #
+    # if len(snake_tail) = 8, for example
+    # segments are:
+    # [0,1,2,3]
+    # [2,3,4,5]
+    # [4,5,6,7]
+    # Want loop index j to go -> 0, 2, 4 and then stop.
+    #
+    for j in range(0,len(snake_tail)-2,2):
+        ax = snake_tail[j]
+        ay = snake_tail[j+1]
+        bx = snake_tail[j+2]
+        by = snake_tail[j+3]
+        if (doIntersect(ax,ay,bx,by,cx,cy,dx,dy) == True):
+            overlap = True
+
+    return overlap
+
+
 ###############################################################################
 ##
 ##  End of function insertion point.
@@ -798,14 +819,55 @@ def main():
     #
     # Part 4: Colliding with Walls
     #
+    # Example p1_queue
+    # [x0, y0, x1, y1, x2, y2, x3, y3, x4, y4, x5, y5]
+    #
+    # tail ............................head
+    # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    #
+    # [0, 1, 2, 3]
+    #       [2, 3, 4, 5]
+    #              [4, 5, 6, 7]
+    #                     [6, 7, 8, 9]
+    #                           [8, 9, 10, 11]
+    #                               
+    # len(p1_queue) = 12
+    #
+    head_x = p1_queue[len(p1_queue)-2]
+    head_y = p1_queue[len(p1_queue)-1]
+    
+    if (head_x < 0 or head_x > 799 or head_y < 0 or head_y > 599):
+        p1_lost = True
+        speed = 0.0
 
     #
     # Part 5: Colliding with Yourself
-    #
+    # 
+    overlap = False
+    snake_tail = p1_queue[0:len(p1_queue)-4]
+    cx = p1_queue[len(p1_queue)-4]
+    cy = p1_queue[len(p1_queue)-3]
+    dx = p1_queue[len(p1_queue)-2]
+    dy = p1_queue[len(p1_queue)-1]
+    overlap = check_overlap(cx,cy,dx,dy,snake_tail)
+    # overlap return True if there is an overlap, False otherwise
+    if (overlap):
+        p1_lost = True
+        speed = 0.0
 
     #
     # Part 6: Colliding with Other Snakes
     #
+    
+    snake_overlap = False
+    for aisnake in e_queues:
+        # aisnake is going to be list of coordinates like p1_queue, except
+        # it will be for the other snakes
+        snake_overlap = check_overlap(cx,cy,dx,dy,aisnake)
+        if (snake_overlap):
+            p1_lost = True
+            speed = 0.0
+
 
 ###############################################################################
 ##
