@@ -1,0 +1,2 @@
+1,2,3,4.5,99.0012
+cat,dog,True,your mother,4.98
