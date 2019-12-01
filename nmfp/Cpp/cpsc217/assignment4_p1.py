@@ -18,7 +18,7 @@ indent = 100
 
 # calculate the frame width and height
 frame_width = width - 2*border_width
-frame_height = height - header_width - 2*border_width
+frame_height = height - header_width - 2*border_width # = 450
 
 # set a gray background
 setOutline("gray")
@@ -26,7 +26,7 @@ background("gray")
 
 try:
     # get the filename from the first argument
-    nargs = len(sys.argv)-1
+    nargs = len(sys.argv)-1 # python3 assignment4.py ripken.txt -> 2 args 
     
     if (nargs == 1):
         filename = sys.argv[1]
@@ -46,8 +46,7 @@ try:
     sourcelabel = temp.rstrip('\n')
 
     # draw the source label on the left - right justified ("e" = "East")
-    setOutline(0,0,0)
-    nchar = len(sourcelabel)
+    setOutline("black")
     fsi = int(16)
     fs = str(fsi)
     setFont("Comic Sans", fs)
@@ -56,7 +55,6 @@ try:
     text(hpos, vpos, sourcelabel, "e")
 
     # draw the title - default is center justified
-    nchar = len(title)
     fsi = int(24)
     fs = str(fsi)
     setFont("Comic Sans", fs)
@@ -71,7 +69,7 @@ except:
     # could not be opened
 
     print ("# args = ",len(sys.argv)-1)
-    if (len(sys.argv)-1 != 1):
+    if (len(sys.argv)-1 >= 1):
         print ("Incorrect number of arguments (should equal 2)!!!")
         print ("Exiting now.")
     else:

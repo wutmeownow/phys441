@@ -95,7 +95,7 @@ def draw_sankey(dictionary):
     # Determine the position of the top left corner of the source vertical bar
     # and the top left corner of the first destination bar
     x_source = border_width + indent
-    x_dest = width - border_width - indent
+    x_dest = width - border_width - indent - bar_width
     y_source = header_width + border_width + frame_height/2 - h_source/2
     y_dest = header_width + border_width + frame_height/2 - h_source/2 - (length-1)*gap/2
     
@@ -122,7 +122,6 @@ def draw_sankey(dictionary):
         setOutline(dest_color[i][0],dest_color[i][1],dest_color[i][2])
         rect(x_dest,y_dest, bar_width, h_dest[i])
         y_dest_txt = y_dest + h_dest[i]/2
-        nchar = len(entry)
         x_dest_txt = x_dest + 1.5*bar_width
         fsi = int(12)
         fs = str(fsi)
@@ -225,17 +224,15 @@ try:
     draw_sankey(dictionary)
     
     # draw the source label on the left - right justified ("e" = "East")
-    setOutline(0,0,0)
-    nchar = len(sourcelabel)
-    fsi = int(16)
+    setOutline("black")
+    fsi = int(12)
     fs = str(fsi)
     setFont("Comic Sans", fs)
-    vpos = height/2
-    hpos = border_width + indent - 1.5*bar_width
+    vpos = header_width+border_width+frame_height/2
+    hpos = border_width + indent - 0.5*bar_width
     text(hpos, vpos, sourcelabel, "e")
 
     # draw the title - default is center justified
-    nchar = len(title)
     fsi = int(24)
     fs = str(fsi)
     setFont("Comic Sans", fs)
@@ -250,7 +247,7 @@ except:
     # could not be opened
 
     print ("# args = ",len(sys.argv)-1)
-    if (len(sys.argv)-1 != 1):
+    if (len(sys.argv)-1 >= 2):
         print ("Incorrect number of arguments (should equal 2)!!!")
         print ("Exiting now.")
     else:
