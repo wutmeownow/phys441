@@ -57,7 +57,7 @@ def draw_sankey(dictionary):
     pixel_avail = frame_height - (length-1)*gap
     pixel_per_flow = float(pixel_avail/val_sum)
         
-    #print (val_sum,pixel_avail,pixel_per_flow)
+    print (val_sum,pixel_avail,pixel_per_flow)
     
     # Create a list of destination category sizes (in pixels).  Also
     # calculate the total number of pixels in all categories.
@@ -95,10 +95,10 @@ def draw_sankey(dictionary):
         setFill("black")
         setOutline("black")
         rect(x_dest,y_dest, bar_width, h_dest[i])
+        #
         y_dest_txt = y_dest + h_dest[i]/2
-        nchar = len(entry)
         x_dest_txt = x_dest + 1.5*bar_width
-        fsi = int(12)
+        fsi = int(16)
         fs = str(fsi)
         setFont("Comic Sans", fs)
         print (x_dest_txt, y_dest_txt)
