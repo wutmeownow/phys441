@@ -1,6 +1,6 @@
 /*******************************
  *
- * Application: IncrementAge
+ * Application: IncrementAgeSetGet
  * Purpose: Demonstrate the need for understanding local and global variables, and
  *          the difference between pass by reference vs. pass by value
  *
@@ -9,14 +9,14 @@
  *
  *******************************/
 
-public class IncrementAge {
+public class IncrementAgeSetGet {
 
     public static void main(String [] args) {
 
-        // Create an object of type PersonalInfo called Olivia
+        // Create an object of type PersonalInfoSetGet called Olivia
         // This object will have two member variables - age and name.
         //
-        PersonalInfo Olivia = new PersonalInfo(25,"Olivia");
+        PersonalInfoSetGet Olivia = new PersonalInfoSetGet(25,"Olivia");
 
         System.out.println("Name, age = " + Olivia.GetName() + ", " + Olivia.GetAge());
         
@@ -24,14 +24,6 @@ public class IncrementAge {
         Olivia.IncrementAge();
         
         System.out.println("Name, age = " + Olivia.GetName() + ", " + Olivia.GetAge());
-        
-        // Set a new name and age
-        Olivia.SetName("Dad");
-        Olivia.SetAge(53);
-        
-        System.out.println("Name, age = " + Olivia.GetName() + ", " + Olivia.GetAge());
-
-        //Olivia.age = 25;  // Can't do this!!! age is private member
 
     }
 
