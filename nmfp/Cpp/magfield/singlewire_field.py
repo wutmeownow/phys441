@@ -13,8 +13,7 @@ __author__ = 'wack'
 # some basic calculations for testing
 
 import numpy as np
-
-import visvis as vv
+import matplotlib.pyplot as plt
 
 import wire
 import biotsavart
@@ -22,12 +21,12 @@ import biotsavart
 
 # simple wire
 #w = wire.Wire(path=wire.Wire.SolenoidPath(), discretization_length=0.01, current=100).Translate((0.0, 0.0, 0.0)).Rotate(axis=(1.0, 0.0, 0.0), deg=0.0)
-w = wire.Wire(path=wire.Wire.LinearPath([0.5,0.5,0.0],[0.5,0.5,1.0],pts=200), discretization_length=0.01, current=10000)
+w = wire.Wire(path=wire.Wire.LinearPath([0.5,0.5,0.0],[0.5,0.5,1.0],pts=200), discretization_length=0.01, current=1000000)
 sol = biotsavart.BiotSavart(wire=w)
 
-resolution = 0.06
-volume_corner1 = (-.2, -.2, -.2)
-volume_corner2 = (1.2, 1.2, 1.2)
+resolution = 0.1
+volume_corner1 = (.2, .2, .2)
+volume_corner2 = (.8, .8, .8)
 
 grid = np.mgrid[volume_corner1[0]:volume_corner2[0]:resolution, volume_corner1[1]:volume_corner2[1]:resolution, volume_corner1[2]:volume_corner2[2]:resolution]
 
@@ -41,11 +40,14 @@ Babs = np.linalg.norm(B, axis=1)
 
 #Draw results
 # remove big values close to the wire
-cutoff = 0.002
+cutoff = 4.2
 minvalue = 0.0002
 
 B[Babs > cutoff] = [np.nan,np.nan,np.nan]
 B[Babs < minvalue] = [np.nan,np.nan,np.nan]
+
+for bs in B:
+    print (bs)
 
 fig = plt.figure()
 # 3d quiver
