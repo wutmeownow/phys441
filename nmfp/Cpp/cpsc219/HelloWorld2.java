@@ -1,14 +1,20 @@
-/*******************************
+/*
+
+ * ******************************
  * This is a comment block
  *
- * Application:  HelloWorld
+ * Application:  HelloWorld2
  *
  * Author:  E.J. Brash
  * Date:  January 3, 2020
  *
- *******************************/
+ ******************************
+
+*/
 
 public class HelloWorld2 {
+
+    // This is another comment
 
     public static void main(String [] args) {
    
