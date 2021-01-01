@@ -1,3 +1,5 @@
 *.DS_Store
 *physics421
 *.ipynb_checkpoints*
+nmfp/Cpp/cpsc217/__pycache__
+nmfp/Cpp/__pycache__
