@@ -1,7 +1,0 @@
-set terminal png nocrop enhanced font arial 8 size 1000,1000
-
-set output 'plot1.png'
-
-set grid
-
-plot "vmag_combined.txt"
