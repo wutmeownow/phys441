@@ -3,3 +3,4 @@
 *.ipynb_checkpoints*
 nmfp/Cpp/cpsc217/__pycache__
 nmfp/Cpp/__pycache__
+JupyterNotebooks/Untitled*.ipynb
