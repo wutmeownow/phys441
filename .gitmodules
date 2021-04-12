@@ -1,0 +1,3 @@
+[submodule "JupyterNotebooks/Python/CFDPython"]
+	path = JupyterNotebooks/Python/CFDPython
+	url = https://github.com/barbagroup/CFDPython
