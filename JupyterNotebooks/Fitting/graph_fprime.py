@@ -1,7 +1,6 @@
 from ROOT import TCanvas, TGraph, TFile, TF1
 from ROOT import gROOT, gStyle
 from array import array
-import sys, string
 import numpy as np
 
 gROOT.Reset()
@@ -29,7 +28,7 @@ gr.Fit("pfit1","q")
 pfit1chi2 = pfit1.GetChisquare()
 pfit1ndf = pfit1.GetNDF()
 pfit1chi2ndf = pfit1chi2/pfit1ndf
-print "Fit 1: ",pfit1chi2,pfit1ndf
+print("Fit 1: ",pfit1chi2,pfit1ndf)
    
 gr.Draw("AP")
 
