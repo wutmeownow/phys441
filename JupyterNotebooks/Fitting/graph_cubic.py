@@ -28,10 +28,13 @@ pfit1.SetLineColor(2)
 gr.Fit("pfit1","q")
 pfit1chi2 = pfit1.GetChisquare()
 pfit1ndf = pfit1.GetNDF()
-pfit1chi2ndf = pfit1chi2/pfit1ndf
+#pfit1chi2ndf = pfit1chi2/pfit1ndf
 print ("Fit 1: ",pfit1chi2,pfit1ndf)
    
 gr.Draw("AP")
+c1.Update()
+
+input('Enter a value to continue')
 
 # draw the legend
 #   Char_t message[80];
@@ -44,8 +47,8 @@ gr.Draw("AP")
 # legend->Draw();
 
 # TCanvas::Update() draws the frame, after which one can change it
-c1.Update()
-c1.GetFrame().SetFillColor(21)
-c1.GetFrame().SetBorderSize(12)
-c1.Modified()
-c1.Update()
+#c1.Update()
+#c1.GetFrame().SetFillColor(21)
+#c1.GetFrame().SetBorderSize(12)
+#c1.Modified()
+#c1.Update()

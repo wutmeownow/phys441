@@ -36,7 +36,7 @@ ax1 = fig.add_subplot(111)
 ax1.set_title("Cubic Fitting - No Errors")    
 ax1.set_xlabel('X')
 ax1.set_ylabel('Y')
-ax1.set_yscale("linear",nonposy='clip')
+ax1.set_yscale("linear")
 ax1.grid(True)
 
 ax1.scatter(x,y)

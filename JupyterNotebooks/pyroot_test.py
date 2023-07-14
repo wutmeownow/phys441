@@ -1,6 +1,8 @@
 import os
 
+print("ROOTSYS:")
 os.system("echo $ROOTSYS")
+print("PYTHONPATH:")
 os.system("echo $PYTHONPATH")
 
 from ROOT import TCanvas

@@ -30,14 +30,7 @@
         <entry key="$PROJECT_DIR$/.idea/phys441.iml">
           <value>
             <JupyterConnectionParameters>
-              <option name="authType" value="notebook" />
-              <option name="token" value="c3a3dce6b043b20466685f0f84fcb4a74c0d5c7414a6a928" />
-              <option name="urlString" value="http://127.0.0.1:8888" />
-              <authParams2>
-                <map>
-                  <entry key="token" value="c3a3dce6b043b20466685f0f84fcb4a74c0d5c7414a6a928" />
-                </map>
-              </authParams2>
+              <option name="managed" value="true" />
             </JupyterConnectionParameters>
           </value>
         </entry>
