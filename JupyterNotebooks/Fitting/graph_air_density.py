@@ -31,7 +31,7 @@ ax1 = fig.add_subplot(111)
 ax1.set_title("Density")    
 ax1.set_xlabel('Altitude (m)')
 ax1.set_ylabel('Density (kg/m^3)')
-ax1.set_yscale("log",nonposy='clip')
+#ax1.set_yscale("log")
 ax1.grid(True)
 
 ax1.scatter(altitude,density)
@@ -41,7 +41,7 @@ popt, pcov = curve_fit(fitfunction, altitude, density, p0=init_vals)
 
 print (popt)
 
-ax1.plot(altitude, fitfunction(altitude, *popt), 'r-', label = 'fit: Amplitude = %.3E, Linear = %.3E, Quadratic = %.3E' % tuple(popt))
+ax1.plot(altitude, fitfunction(altitude, *popt), 'r-', label = 'fit: Amplitude = %.3E, \nLinear = %.3E, \nQuadratic = %.3E' % tuple(popt))
 
 leg = ax1.legend()
 plt.show()
