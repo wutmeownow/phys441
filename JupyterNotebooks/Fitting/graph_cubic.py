@@ -12,7 +12,7 @@ c1.SetGrid()
 
 gStyle.SetOptFit(1)
 
-filename = "poly.dat"
+filename = "poly5.dat"
 x1, y1 = np.loadtxt(filename, unpack=True)
 x = array("d",x1)
 y = array("d",y1)
