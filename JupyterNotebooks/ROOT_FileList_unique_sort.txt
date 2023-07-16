@@ -1,5 +1,4 @@
 
-./Fitting/graph_fitting.ipynb
 ./Fitting/graph_fitting_matrix.ipynb
 ./Fitting/graph_fitting_matrix_errors.ipynb
 ./Fitting/graph_fitting_matrix_errors_comparison.ipynb
