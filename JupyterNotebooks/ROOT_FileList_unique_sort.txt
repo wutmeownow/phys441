@@ -1,7 +1,4 @@
 
-
-./Fitting/graph_fitting_matrix_errors_comparison.ipynb
-./Fitting/graph_fitting_matrix_errors_comparison_loop.ipynb
 ./Fitting/graph_fitting_matrix_linear.ipynb
 ./Fitting/graph_fitting_matrix_linear_prediction.ipynb
 ./Fitting/graph_fitting_matrix_linear_prediction_matplotlib.ipynb
