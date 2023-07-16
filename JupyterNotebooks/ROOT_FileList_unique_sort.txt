@@ -19,10 +19,7 @@
 ./Fitting/graph_orbit.ipynb
 ./Fitting/graph_orbit_complete.ipynb
 ./Fitting/graph_pendulum_air.ipynb
-./Fitting/graph_projectile.ipynb
 ./Fitting/graph_projectile_bounce.ipynb
-./Fitting/graph_projectile_human.ipynb
-./Fitting/graph_projectile_simple.ipynb
 ./Fitting/graph_random_dist.ipynb
 ./Fitting/graph_random_dist_gaussian.ipynb
 ./Fitting/graph_random_dist_pyrandom.ipynb
