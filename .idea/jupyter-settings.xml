@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JupyterPersistentConnectionParameters">
-    <option name="knownRemoteServers">
-      <list>
-        <JupyterConnectionParameters>
-          <option name="authType" value="notebook" />
-          <option name="token" value="c3a3dce6b043b20466685f0f84fcb4a74c0d5c7414a6a928" />
-          <option name="urlString" value="http://127.0.0.1:8888" />
-          <authParams2>
-            <map>
-              <entry key="token" value="c3a3dce6b043b20466685f0f84fcb4a74c0d5c7414a6a928" />
-            </map>
-          </authParams2>
-        </JupyterConnectionParameters>
-        <JupyterConnectionParameters>
-          <option name="authType" value="notebook" />
-          <option name="token" value="e0a3ff4cffc25aa39b09380c4774e6e04c35e7145cabf5e7" />
-          <option name="urlString" value="http://127.0.0.1:8890" />
-          <authParams2>
-            <map>
-              <entry key="token" value="e0a3ff4cffc25aa39b09380c4774e6e04c35e7145cabf5e7" />
-            </map>
-          </authParams2>
-        </JupyterConnectionParameters>
-      </list>
-    </option>
     <option name="moduleParameters">
       <map>
         <entry key="$PROJECT_DIR$/.idea/phys441.iml">

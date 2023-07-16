@@ -1,5 +1,3 @@
-#!/usr/local/bin/python3
-
 import random
 import numpy as np
 import matplotlib
@@ -124,7 +122,7 @@ ax1 = fig.add_subplot(111)
 ax1.set_title("Ryder Cup 2018 - Data vs. Simulation")
 ax1.set_xlabel('Finishing Hole of Match')
 ax1.set_ylabel('Fraction of Matches')
-ax1.set_yscale("linear",nonposy='clip')
+ax1.set_yscale("linear")
 ax1.grid(True)
 ax1.plot(simhole,simdata)
 ax1.errorbar(simhole,ryderdata,yerr=rydererror,fmt='o')
@@ -135,7 +133,7 @@ ax2 = fig.add_subplot(211)
 ax2.set_title("Winning Team Final Score")
 ax2.set_xlabel('Final Score')
 ax2.set_ylabel('N')
-ax2.set_yscale("linear",nonposy='clip')
+ax2.set_yscale("linear")
 ax2.grid(True)
 ax2.hist(ateamscorelist,55,(0,28))
 
@@ -143,7 +141,7 @@ ax3 = fig.add_subplot(212)
 ax3.set_title("Losing Team Final Score")
 ax3.set_xlabel('Final Score')
 ax3.set_ylabel('N')
-ax3.set_yscale("linear",nonposy='clip')
+ax3.set_yscale("linear")
 ax3.grid(True)
 ax3.hist(bteamscorelist,55,(0,28))
 
