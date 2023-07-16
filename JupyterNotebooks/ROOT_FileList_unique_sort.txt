@@ -16,8 +16,6 @@
 
 ./Fitting/graph_fprime.ipynb
 
-./Fitting/graph_integration_multiple_midpoint_2D.ipynb
-
 ./Fitting/graph_orbit.ipynb
 ./Fitting/graph_orbit_complete.ipynb
 
