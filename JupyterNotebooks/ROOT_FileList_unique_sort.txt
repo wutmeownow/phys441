@@ -1,5 +1,2 @@
 ./Fitting/graph_pendulum_air.ipynb
 
-./Fitting/graph_root_find_complete.ipynb
-
-./pyroot_test.ipynb
