@@ -1,5 +1,3 @@
-./Fitting/graph_fprime.ipynb
-
 ./Fitting/graph_orbit.ipynb
 ./Fitting/graph_orbit_complete.ipynb
 
