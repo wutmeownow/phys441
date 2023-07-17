@@ -1,6 +1,3 @@
-./Fitting/graph_orbit.ipynb
-./Fitting/graph_orbit_complete.ipynb
-
 ./Fitting/graph_pendulum_air.ipynb
 
 ./Fitting/graph_root_find_complete.ipynb
