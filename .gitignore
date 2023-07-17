@@ -2,6 +2,7 @@
 *physics421
 *.ipynb_checkpoints*
 nmfp/Cpp/cpsc217/__pycache__
+JupyterNotebooks/ModSimPy/chapters/__pycache__/*
 nmfp/Cpp/__pycache__
 JupyterNotebooks/Untitled*.ipynb
 ./venv
