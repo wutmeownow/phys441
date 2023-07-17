@@ -1,6 +1,3 @@
-./Fitting/graph_fourier_basic.ipynb
-./Fitting/graph_fourier_ndependence.ipynb
-
 ./Fitting/graph_fprime.ipynb
 
 ./Fitting/graph_orbit.ipynb
