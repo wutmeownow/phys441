@@ -1,8 +1,5 @@
 
-./Fitting/graph_fitting_matrix_linear.ipynb
-./Fitting/graph_fitting_matrix_linear_prediction.ipynb
-./Fitting/graph_fitting_matrix_linear_prediction_matplotlib.ipynb
-./Fitting/graph_fitting_matrix_linear_prediction_sim.ipynb
+
 ./Fitting/graph_fitting_matrix_nonlinear.ipynb
 ./Fitting/graph_fitting_matrix_nonlinear_errors.ipynb
 
