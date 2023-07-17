@@ -1,8 +1,5 @@
 
 
-./Fitting/graph_fitting_matrix_nonlinear.ipynb
-./Fitting/graph_fitting_matrix_nonlinear_errors.ipynb
-
 ./Fitting/graph_fourier_basic.ipynb
 ./Fitting/graph_fourier_ndependence.ipynb
 
