@@ -73,7 +73,6 @@ ax3.grid(True)
 
 ax3.plot(altitude, (density - fitfunction(altitude, *popt)), 'o-')
 
-
 plt.show()
 
 # save figure to file
