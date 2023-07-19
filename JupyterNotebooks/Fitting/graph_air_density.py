@@ -33,9 +33,8 @@ else:
 
 density_uncertainty = np.array(density_uncertainty)
 
-fig = plt.figure()
-
-ax1 = fig.add_subplot(111)
+fig, (ax1,ax2,ax3) = plt.subplots(3,1,figsize=(8,16))
+fig.tight_layout(pad=5.0)
 
 ax1.set_title("Density")    
 ax1.set_xlabel('Altitude (m)')
@@ -59,11 +58,23 @@ print (popt)
 ax1.plot(altitude, fitfunction(altitude, *popt), 'r-', label = 'fit: Amplitude = %.3E, \nLinear = %.3E, \nQuadratic = %.3E' % tuple(popt))
 
 leg = ax1.legend()
+
+ax2.set_title("Density Residuals")
+ax2.set_xlabel('Altitude (m)')
+ax2.set_ylabel('Density Residuals (fraction)')
+ax2.grid(True)
+
+ax2.plot(altitude, (density - fitfunction(altitude, *popt))/density, 'o-')
+
+ax3.set_title("Density Residuals")
+ax3.set_xlabel('Altitude (m)')
+ax3.set_ylabel('Density Residuals (kg/m^3)')
+ax3.grid(True)
+
+ax3.plot(altitude, (density - fitfunction(altitude, *popt)), 'o-')
+
+
 plt.show()
 
-# add a printout of the figure to a pdf file
-fig.savefig('density.pdf')
-
-# add a printout of the figure to a png file    
-fig.savefig('density.png')
+# save figure to file
 
