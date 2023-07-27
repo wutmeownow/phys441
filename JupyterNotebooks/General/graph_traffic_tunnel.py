@@ -6,12 +6,12 @@ def graph_traffic():
     method = int(input("Choose a numerical method: 1) FTCS, 2) Lax, 3) Lax-Wendroff : "))
     Ngrid = int(input("Enter number of grid points: "))
     N = Ngrid
-    L = 800.0        # System size
+    L = 8000.0        # System size
     h = L / N        # Grid spacing
-    v_max = 25       # Wave speed
-    print("Suggested timestep is", h / v_max)
+    v_max_absolute = 25       # Wave speed
+    print("Suggested timestep is", h / v_max_absolute)
     tau = float(input("Enter time step: "))
-    print("Last car starts moving after", (L / 8) / (v_max * tau), "steps")
+    print("Last car starts moving after", (L / 8) / (v_max_absolute * tau), "steps")
     nStepvar = int(input("Enter number of steps: "))
     nStep = nStepvar
     coeff = tau / (2.0 * h)           # Coefficient used by all schemes
@@ -19,19 +19,29 @@ def graph_traffic():
 
     # Set initial and boundary conditions.
     rho_max = 1.0                  # Maximum density
-    Flow_max = 0.25 * rho_max * v_max  # Maximum Flow
+    Flow_max = 0.25 * rho_max * v_max_absolute  # Maximum Flow
     # Initial condition is a square pulse from x = -L/4 to x = 0
     rho = np.zeros(N)
     rho_start = np.zeros(N)
-    print("At init: ",len(rho))
-    iBack, iFront = N // 8, N // 4 - 1
+    v_max = np.zeros(N)
+    iBack, iFront = N // 2, N // 2 + N//10
     for i in range(N):
         if iBack <= i <= iFront:
-            rho[i] = rho_max
+            v_max[i] = 0.9*v_max_absolute
+        else:
+            v_max[i] = v_max_absolute
+
+    print("At init: ",len(rho))
+    # iBack, iFront = N // 80, N // 40 - 1
+    iBack, iFront = 0, N - 2
+    for i in range(N):
+        if iBack <= i <= iFront:
+            # rho[i] = rho_max
+            rho[i] = 0.5*rho_max
         else:
             rho[i] = 0.0
         rho_start[i] = rho[i]
-    rho[iFront + 1] = rho_max / 2
+    rho[iFront + 1] = 0.5*rho_max
 
     # Use periodic boundary conditions
     ip = np.zeros(N)
@@ -63,7 +73,7 @@ def graph_traffic():
     for iStep in range(nStep):
         # Compute the flow = (Density) * (Velocity)
         for i in range(N):
-            Flow[i] = rho[i] * (v_max * (1.0 - rho[i] / rho_max))
+            Flow[i] = rho[i] * (v_max[i] * (1.0 - rho[i] / rho_max))
 
         rho_new = np.zeros(N)
 
@@ -78,8 +88,8 @@ def graph_traffic():
                 rho_new[i] = 0.5 * (rho[int(ip[i])] + rho[int(im[i])]) - coeff * (Flow[int(ip[i])] - Flow[int(im[i])])
         else:                # Lax-Wendroff method
             for i in range(N):
-                cp = v_max * (1 - (rho[int(ip[i])] + rho[i]) / rho_max)
-                cm = v_max * (1 - (rho[i] + rho[int(im[i])]) / rho_max)
+                cp = v_max[i] * (1 - (rho[int(ip[i])] + rho[i]) / rho_max)
+                cm = v_max[i] * (1 - (rho[i] + rho[int(im[i])]) / rho_max)
                 rho_new[i] = rho[i] - coeff * (Flow[int(ip[i])] - Flow[int(im[i])]) + coefflw * (
                         cp * (Flow[int(ip[i])] - Flow[i]) - cm * (Flow[i] - Flow[int(im[i])]))
 

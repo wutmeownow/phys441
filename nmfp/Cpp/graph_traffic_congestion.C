@@ -10,13 +10,15 @@ void graph_traffic_congestion(double factor=0.25, double alpha = 0.20) {
   //* Select numerical parameters (time step, grid spacing, etc.).
   cout << "Choose a numerical method: 1) FTCS, 2) Lax, 3) Lax-Wendroff : ";
   int method; cin >> method;
-  cout << "Enter number of grid points: "; const int N; cin >> N;
+  cout << "Enter number of grid points: "; int Ngrid; cin >> Ngrid;
+  int N = Ngrid;
   double L = 800.;     // System size
   double h = L/N;    // Grid spacing
   double v_max = 25;      // Wave speed
   cout << "Suggested timestep is " << h/v_max << endl;
   cout << "Enter time step: "; double tau; cin >> tau;
-  cout << "Enter number of steps: "; const int nStep; cin >> nStep;
+  cout << "Enter number of steps: "; int nStepC; cin >> nStepC;
+  int nStep = nStepC;
   double coeff = tau/(2.*h);    // Coefficient used by all schemes
   double coefflw = 2*coeff*coeff;  // Coefficient used by L-W scheme
   double cp, cm; 	// Variable used by Lax-Wendroff
@@ -108,8 +110,8 @@ void graph_traffic_congestion(double factor=0.25, double alpha = 0.20) {
    c2->SetFillColor(42);
    c2->SetGrid();
 
-   grstart = new TGraph(npoints,xplot,rho_start);
-   grend = new TGraph(npoints,xplot,rho);
+   TGraph* grstart = new TGraph(npoints,xplot,rho_start);
+   TGraph* grend = new TGraph(npoints,xplot,rho);
    
    grstart->SetLineColor(2);
    grend->SetLineColor(4);
