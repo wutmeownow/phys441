@@ -10,7 +10,8 @@ void graph_traffic() {
   //* Select numerical parameters (time step, grid spacing, etc.).
   cout << "Choose a numerical method: 1) FTCS, 2) Lax, 3) Lax-Wendroff : ";
   int method; cin >> method;
-  cout << "Enter number of grid points: "; const int N; cin >> N;
+  cout << "Enter number of grid points: "; int Ngrid; cin >> Ngrid;
+  const int N = Ngrid;
   double L = 800.;     // System size
   double h = L/N;    // Grid spacing
   double v_max = 25;      // Wave speed
@@ -18,7 +19,8 @@ void graph_traffic() {
   cout << "Enter time step: "; double tau; cin >> tau;
   cout << "Last car starts moving after "
        << (L/8)/(v_max*tau) << " steps" << endl;
-  cout << "Enter number of steps: "; const int nStep; cin >> nStep;
+  cout << "Enter number of steps: "; int nStepvar; cin >> nStepvar;
+  const int nStep = nStepvar;
   double coeff = tau/(2.*h);    // Coefficient used by all schemes
   double coefflw = 2*coeff*coeff;  // Coefficient used by L-W scheme
   double cp, cm; 	// Variable used by Lax-Wendroff
@@ -79,7 +81,7 @@ void graph_traffic() {
          for( i=0; i<N; i++ ) {
 	      cp = v_max*(1 - (rho[ip[i]]+rho[i])/rho_max);
 	      cm = v_max*(1 - (rho[i]+rho[im[i]])/rho_max);
-              rho_new[i] = rho[i] - coeff*( Flow[ip[i]]-Flow[im[i]] ) + coefflw*( cp*(Flow[ip[i]]-Flow[i]) - cm*(Flow[i]-Flow[im[i]]) );
+          rho_new[i] = rho[i] - coeff*( Flow[ip[i]]-Flow[im[i]] ) + coefflw*( cp*(Flow[ip[i]]-Flow[i]) - cm*(Flow[i]-Flow[im[i]]) );
 	 }
      }
 
