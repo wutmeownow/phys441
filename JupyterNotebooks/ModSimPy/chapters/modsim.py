@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 
 plt.rcParams['figure.dpi'] = 75
 plt.rcParams['savefig.dpi'] = 300
-plt.rcParams['figure.figsize'] = 6, 4
+plt.rcParams['figure.figsize'] = 9, 6
 
 import numpy as np
 import pandas as pd
