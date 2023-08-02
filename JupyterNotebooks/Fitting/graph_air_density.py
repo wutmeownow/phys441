@@ -76,4 +76,6 @@ ax3.plot(altitude, (density - fitfunction(altitude, *popt)), 'o-')
 plt.show()
 
 # save figure to file
+fig.savefig('density.png',dpi=300)
+
 
