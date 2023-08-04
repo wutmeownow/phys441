@@ -6,11 +6,10 @@ import statsmodels.formula.api as smf
 advert = pd.read_csv('advertising.csv')
 print(advert.head())
 
-# Look at the data!  Create plots of Sales vs. each variable
 fig, ax = plt.subplots(1, figsize=(8,8))
 fig.suptitle("Effects of Advertising on Sales - Residual Plot")
 
-# Fit a linear regression model to a single parameter - Sales vs. TV advertising costs
+# Fit a linear regression models to different combinations of parameters
 model1 = smf.ols('Sales ~ TV', data=advert)
 model1 = model1.fit()
 model2 = smf.ols('Sales ~ TV + Radio', data=advert)
@@ -19,7 +18,7 @@ model3 = smf.ols('Sales ~ TV + Radio + Newspaper', data=advert)
 model3 = model3.fit()
 
 # View model summary
-#print(model.summary())
+print(model3.summary())
 
 # Predict values
 sales_pred1 = model1.predict()
@@ -30,8 +29,9 @@ sales_pred3 = model3.predict()
 resid3 = advert['Sales'] - sales_pred3
 
 # Plot regression against actual data
-ax.hist(resid1, color = "blue", ec="white", bins=50)           # histogram of residuals
-ax.hist(resid2, color = "lightblue", ec="red", bins=50)
-#ax.hist(resid3, color = "yellow", ec="yellow", bins=50)
+ax.hist(resid1, color = "blue", ec="white", bins=50, label='Sales ~ TV')           # histogram of residuals
+ax.hist(resid2, color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')           # histogram of residuals
+ax.hist(resid3, color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')           # histogram of residuals
 
+plt.legend()
 plt.show()
