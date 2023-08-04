@@ -31,7 +31,7 @@ resid3 = advert['Sales'] - sales_pred3
 # Plot regression against actual data
 ax.hist(resid1, color = "blue", ec="white", bins=50, label='Sales ~ TV')           # histogram of residuals
 ax.hist(resid2, color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')           # histogram of residuals
-ax.hist(resid3, color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')           # histogram of residuals
+#ax.hist(resid3, color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')           # histogram of residuals
 
 plt.legend()
 plt.show()
