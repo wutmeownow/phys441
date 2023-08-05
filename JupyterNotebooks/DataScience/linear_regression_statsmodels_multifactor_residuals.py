@@ -2,6 +2,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import statsmodels.formula.api as smf
 
+include_newspaper = False
+
 # Get the data
 advert = pd.read_csv('advertising.csv')
 print(advert.head())
@@ -29,15 +31,17 @@ sales_pred3 = model3.predict()
 advert['resid3'] = advert['Sales'] - sales_pred3
 
 # Plot regression against actual data
-ax.hist(advert['resid1'], color = "blue", ec="white", bins=50, label='Sales ~ TV')           # histogram of residuals
-ax.hist(advert['resid2'], color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')           # histogram of residuals
-#ax.hist(advert['resid3'], color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')
+ax.hist(advert['resid1'], color = "blue", ec="white", bins=50, label='Sales ~ TV')
+ax.hist(advert['resid2'], color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')
+if include_newspaper:
+    ax.hist(advert['resid3'], color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')
 
 
 print("Residuals Summary:")
-print("Mean and Standard Deviation of Residuals")
-print(advert['resid1'].mean(), advert['resid2'].mean(), advert['resid3'].mean())
-print(advert['resid1'].std(), advert['resid2'].std(), advert['resid3'].std())
+print(f"TV: {advert['resid1'].mean():.4f} +/- {advert['resid1'].std():.4f}")
+print(f"TV + Radio: {advert['resid2'].mean():.4f} +/- {advert['resid2'].std():.4f}")
+if include_newspaper:
+    print(f"TV + Radio + Newspaper: {advert['resid3'].mean():.4f} +/- {advert['resid3'].std():.4f}")
 
 
 plt.legend()
