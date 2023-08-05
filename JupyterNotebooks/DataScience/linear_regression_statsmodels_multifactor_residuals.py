@@ -22,16 +22,23 @@ print(model3.summary())
 
 # Predict values
 sales_pred1 = model1.predict()
-resid1 = advert['Sales'] - sales_pred1
+advert['resid1'] = advert['Sales'] - sales_pred1
 sales_pred2 = model2.predict()
-resid2 = advert['Sales'] - sales_pred2
+advert['resid2'] = advert['Sales'] - sales_pred2
 sales_pred3 = model3.predict()
-resid3 = advert['Sales'] - sales_pred3
+advert['resid3'] = advert['Sales'] - sales_pred3
 
 # Plot regression against actual data
-ax.hist(resid1, color = "blue", ec="white", bins=50, label='Sales ~ TV')           # histogram of residuals
-ax.hist(resid2, color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')           # histogram of residuals
-#ax.hist(resid3, color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')           # histogram of residuals
+ax.hist(advert['resid1'], color = "blue", ec="white", bins=50, label='Sales ~ TV')           # histogram of residuals
+ax.hist(advert['resid2'], color = "yellow", ec="blue", bins=50, label='Sales ~ TV + Radio')           # histogram of residuals
+#ax.hist(advert['resid3'], color = "lightblue", ec="yellow", bins=50, label='Sales ~ TV + Radio + Newspaper')
+
+
+print("Residuals Summary:")
+print("Mean and Standard Deviation of Residuals")
+print(advert['resid1'].mean(), advert['resid2'].mean(), advert['resid3'].mean())
+print(advert['resid1'].std(), advert['resid2'].std(), advert['resid3'].std())
+
 
 plt.legend()
 plt.show()
