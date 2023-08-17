@@ -15,7 +15,7 @@ viscosity = []
 
 use_errors = True
 
-with open('../Fitting/density.txt') as f:
+with open('density.txt') as f:
     for line in f:
         data = line.split()
         altitude.append(float(data[0]))
