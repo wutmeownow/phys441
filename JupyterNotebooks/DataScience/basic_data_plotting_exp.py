@@ -35,7 +35,7 @@ def expfunction(x, *param):
 if __name__ == '__main__':
 
     # Step 1:  Read the data into appropriate data structures
-    file_name = "testdata.csv"
+    file_name = "../Week2/testdata.csv"
     header_values, xi, yi, dxi, dyi = read_data(file_name)
 
     # print(header_values)

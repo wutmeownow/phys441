@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
 
-    df = pd.read_csv("testdata.csv")
+    df = pd.read_csv("../Week2/testdata.csv")
     #print(df)
 
     fig, ax = plt.subplots()
