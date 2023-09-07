@@ -6,6 +6,8 @@
 # param is a vector of parameters (in this case, just the gravitational constant times the mass of the Sun)
 # deriv is a vector that will contain the new values of the derivatives of the position and velocity (i.e. the velocity and acceleration)
 
+import math
+import array
 
 def gravrk(x,t,param,deriv):
     GM = param[0]
