@@ -4,10 +4,11 @@
 # x is a four-component vector that contains the position and velocity components (x and y for each)
 # t is the current time
 # param is a vector of parameters (in this case, just the gravitational constant times the mass of the Sun)
-# deriv is a vector that will contain the new values of the derivatives of the position and velocity (i.e. the velocity and acceleration)
+# deriv is a vector that will contain the new values of the derivatives of the position and velocity
+# (i.e. the velocity and acceleration)
 
 import math
-import array
+from array import array
 
 def gravrk(x,t,param,deriv):
     GM = param[0]
