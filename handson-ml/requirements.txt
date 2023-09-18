@@ -27,9 +27,9 @@
 ##### Core scientific packages
 jupyter==1.0.0
 matplotlib==3.0.3
-numpy==1.16.2
+numpy==1.22.0
 pandas==0.24.1
-scipy==1.2.1
+scipy==1.10.0
 
 
 ##### Machine Learning packages
@@ -45,7 +45,7 @@ xgboost==0.82
 # you need a GPU card with CUDA Compute Capability 3.0 or higher support, and
 # you must install CUDA, cuDNN and more: see tensorflow.org for the detailed
 # installation instructions.
-tensorflow==2.4.0
+tensorflow==2.11.1
 #tensorflow-gpu==1.13.1
 
 
@@ -74,7 +74,7 @@ numexpr==2.6.9
 
 # Optional: these libraries can be useful in the classification chapter,
 # exercise 4.
-nltk==3.4.5
+nltk==3.6.6
 urlextract==0.9
 
 # Optional: tqdm displays nice progress bars, ipywidgets for tqdm's notebook support

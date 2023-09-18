@@ -11,7 +11,6 @@ def fibonacci(n):  # Expect O(n)
     else:
         t1 = 0
         t2 = 1
-        t3 = 0
         for i in range(2, n+1):
             t3 = t2 + t1
             t1 = t2
