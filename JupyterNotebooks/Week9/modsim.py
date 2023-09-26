@@ -836,7 +836,7 @@ def vector_diff_angle(v, w):
     if len(v) == 2:
         return vector_angle(v) - vector_angle(w)
     else:
-        # TODO: see http://www.euclideanspace.com/maths/algebra/
+        # see http://www.euclideanspace.com/maths/algebra/
         # vectors/angleBetween/
         raise NotImplementedError()
 
